@@ -18,15 +18,30 @@ $(document).ready(function(){
 	$('#banner-slider-nav').slick ({
 		asNavFor: '#banner-slider',
 		vertical: true,
-		prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>',
-		nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>',
+
+		prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-up" aria-hidden="true"></i></button>',
+		nextArrow: '<button type="button" class="slick-next"><i class="fa fa-angle-down" aria-hidden="true"></i></button>',
 	});
 
 	$("#product-slider1").slick({
 		slidesToShow: 4,
 		centerMode: true,
 		asNavFor: '#slider-nav1',
-		arrows: false
+		arrows: false,
+		responsive: [
+		{
+	      	breakpoint: 991,
+	      	settings: {
+		        slidesToShow: 3,
+		    }
+		},
+		{
+	      	breakpoint: 575,
+	      	settings: {
+		        slidesToShow: 1
+		    }
+		}
+	    ]
 
 	});
 	
@@ -34,10 +49,12 @@ $(document).ready(function(){
 		all_slide_count = $('#product-slider1').slick("getSlick").slideCount; 
 
 	$('#slider-nav1').slick({
-		slidesToShow: 1,
+		slidesToShow: 5,
+		infinite: true,
 		asNavFor: '#product-slider1',
 		variableWidth: true,
 		arrows: false,
+		waitForAnimate: false
 	});
 	$('.slick-slide .next1').click(function(){
 		    $("#slider-nav1").slick('slickNext');
@@ -67,6 +84,23 @@ $(document).ready(function(){
 		centerMode: true,
 		arrows: false,
 		asNavFor: '#slider-nav2',
+		responsive: [
+		{
+	      	breakpoint: 991,
+	      	settings: {
+		        slidesToShow: 3,
+		    }
+		},
+		{
+	      	breakpoint: 480,
+	      	settings: {
+		        arrows: false,
+		        centerMode: true,
+		        centerPadding: '40px',
+		        slidesToShow: 1
+		    }
+		}
+	    ]
 	});
 
 
